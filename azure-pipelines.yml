@@ -7,7 +7,7 @@ trigger:
 - main
 
 pool:
-  vmImage: ubuntu-latest
+  vmImage: windows-latest
 
 steps:
 - task: UiPathPack-preview@5
@@ -15,7 +15,6 @@ steps:
     versionType: 'AutoVersion'
     projectJsonPath: 'project.json'
     outputType: 'Process'
-    orchestratorConnection: 'DevOps'
     outputPath: '$(Build.ArtifactStagingDirectory)\Output'
 
 - task: UiPathDeploy-preview@5
@@ -23,4 +22,3 @@ steps:
     orchestratorConnection: 'DevOps'
     packagesPath: '$(Build.ArtifactStagingDirectory)\Output'
     folderName: 'Qdev'
-    processName: 'Modules'
