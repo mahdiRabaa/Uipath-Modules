@@ -7,7 +7,10 @@ trigger:
 - main
 
 pool:
-  vmImage: windows-latest
+  name: Default
+  demands:
+    - agent.name -equals Qagent
+
 
 steps:
 - task: UiPathPack-preview@5
