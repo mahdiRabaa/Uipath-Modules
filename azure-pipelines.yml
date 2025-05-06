@@ -16,9 +16,11 @@ steps:
     projectJsonPath: 'project.json'
     outputType: 'Process'
     orchestratorConnection: 'DevOps'
-    outputPath: '- task: UiPathDeploy-preview@5
+    outputPath: '$(Build.ArtifactStagingDirectory)\Output'
+
+- task: UiPathDeploy-preview@5
   inputs:
     orchestratorConnection: 'DevOps'
     packagesPath: '$(Build.ArtifactStagingDirectory)\Output'
     folderName: 'Qdev'
-    processName: 'Modues''
+    processName: 'Modules'
